@@ -1,3 +1,7 @@
+## Introduction
+
+This repo is for the purpose of learning how to write RESTful Web Serbvice API using Laravel. It's meant to be basic. Please don **NOT** use it for production purposes.
+
 ## Version
 - Laravel 9
 - MySQL 8
@@ -16,6 +20,13 @@ Then, run below command
 ```
 $ composer update
 $ php artisan serve --port=5051
+```
+
+By default, one user is already created in the database:
+
+```
+email: laravel@linxhq.com
+password: P4ssWrd@56
 ```
 
 ## File .env
@@ -79,4 +90,65 @@ VITE_PUSHER_HOST="${PUSHER_HOST}"
 VITE_PUSHER_PORT="${PUSHER_PORT}"
 VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+```
+
+## API calls
+
+APIs available to call are listed below.
+
+Create new account:
+
+```
+curl --location --request POST 'http://localhost:5051/api/user/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "test3",
+        "email": "test@linxhq.com", 
+        "password": "P4ssWrd@5",
+        "password_confirmation": "P4ssWrd@5"
+}'
+```
+
+Verify new account using user id:
+
+```
+curl --location --request POST 'http://localhost:5051/api/user/verify' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": "1"
+}'
+```
+
+Login:
+
+```
+curl --location --request POST 'http://localhost:5051/api/user/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "email": "laravel@linxhq.com", 
+        "password": "P4ssWrd@56"
+}'
+```
+
+Get user by id:
+
+```
+curl --location --request GET 'http://localhost:5051/api/user/1' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer eyJ0eXAi...' \
+--data-raw ''
+```
+
+Change password:
+
+```
+curl --location --request PUT 'http://localhost:5051/api/user/change-password' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer eyJ0eXAiO...' \
+--data-raw '{
+        "id": 1,
+        "email": "laravel@linxhq.com", 
+        "password": "P4ssWrd@56"
+}'
 ```
