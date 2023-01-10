@@ -265,5 +265,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'test3', 'joseph.pnc@linxhq.com', '2023-01-09 03:33:45', '$2y$10$G4jGbt2iGr6Ci67ZXuWRhubXhurME3EfKfXCF3BsAqjLBpOiAFAFC', NULL, '2023-01-09 03:33:37', '2023-01-09 04:15:47');
+(1, 'test3', 'laravel@linxhq.com', '2023-01-09 03:33:45', '$2y$10$G4jGbt2iGr6Ci67ZXuWRhubXhurME3EfKfXCF3BsAqjLBpOiAFAFC', NULL, '2023-01-09 03:33:37', '2023-01-09 04:15:47');
 COMMIT;
