@@ -21,6 +21,8 @@ Route::post('user/authenticate', 'App\Http\Controllers\UserController@authentica
 Route::post('user/password', 'App\Http\Controllers\UserController@updatePassword');
 Route::post('user/login', 'App\Http\Controllers\UserController@login');
 Route::get('login', 'App\Http\Controllers\UserController@login');
+Route::post('todo', 'App\Http\Controllers\TodoController@create');
+Route::get('todo', 'App\Http\Controllers\TodoController@list');
 
 //Route::get('/user/{id}', 'App\Http\Controllers\UserController@getUser');
 Route::get('/user/{id}', 'App\Http\Controllers\UserController@getUser')->middleware('auth:api');
