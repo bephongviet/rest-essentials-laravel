@@ -13,10 +13,7 @@ class TodoController extends Controller
         $todo->status = $request->status;
         $todo->save();
         return response()->json(
-            [
-                'message' => 'Successfully added.',
-                'todo' => $todo
-            ], 201);
+            $todo, 201);
     }
 
     public function list() {
