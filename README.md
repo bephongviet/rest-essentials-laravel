@@ -152,3 +152,24 @@ curl --location --request PUT 'http://localhost:5051/api/user/change-password' \
         "password": "P4ssWrd@56"
 }'
 ```
+
+Add new todo items:
+
+```
+curl --location --request POST 'http://localhost:5051/api/todo' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw '{
+        "name": "my todo item rest",
+        "status": 0
+}'
+```
+
+List todo items:
+
+```
+curl --location --request GET 'http://localhost:5051/api/todo' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw ''
+```
